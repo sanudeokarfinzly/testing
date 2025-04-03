@@ -1,0 +1,13 @@
+FROM flowable/flowable-ui:6.6.0
+
+MAINTAINER DevOps
+
+USER root
+
+RUN rm -rf /app/WEB-INF/classes/flowable-default.properties
+
+ADD ./driver /app/WEB-INF/lib
+
+COPY ./flowable-default.properties /app/WEB-INF/classes
+
+EXPOSE 8080
